@@ -3,16 +3,31 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    list-style-type: none; /* xoa dau cham ul */
+    
 }
 
+html, body {
+    font-family: "Lato", sans-serif;
+    line-height: 1.5;
+    font-size: 15px;
+}
+
+/* COMMON */
 :root {
 	--size-avatar: 150px;
 	--size-border: 10px;
 }
 
-html {
-    font-family: "Lato", sans-serif;
-    line-height: 1.5;
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.row {
+    margin-left: -8px;
+    margin-right: -8px;
 }
 
 .col {
@@ -21,23 +36,30 @@ html {
     padding-right: 8px;
 }
 
-.col-half {
+.col-2 {
     width: 50%;
 }
 
-.col-full {
-    width: 100%;
+.col-3 {
+    width: calc(100%/3);
 }
 
-.row {
-    margin-left: -8px;
-    margin-right: -8px;
+.col-4 {
+    width: 25%;
+}
+
+.col-100 {
+    width: 100%;
 }
 
 .row::affter {
     content: "";
     display: block;
     clear: both;
+}
+
+.text-center {
+    text-align: center;
 }
 
 .mt-8 {
@@ -52,12 +74,33 @@ html {
     margin-bottom: 16px !important;
 }
 
+.w-15 {
+    width: 15px;
+}
+
+.h-15 {
+    height: 15px;
+}
+
 .clear {
     clear: both;
 }
 
 .text-white {
     color: #fff !important;
+}
+
+.social-links-btn {
+    background-size: 22px;
+    width: 28px;
+    height: 28px;
+    font-size: 12.6px;
+    color: #000;
+    display: block;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-position-x: 50%;
+    background-position-y: 50%;
 }
 
 .modal.open {
@@ -104,12 +147,27 @@ html {
 	}
 }
 
+#main {
+
+}
+
 #nav-bar {
     display: inline-block;
 }
 
 #nav-bar .nav-more-arrow {
     font-size: 13px;
+}
+
+/* HEADER */
+#header {
+    background-color: rgb(0, 0, 0);
+    height: 46px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 1;
 }
 
 #header .search-icon {
@@ -132,15 +190,8 @@ html {
     float: right;
 }
 
-#header {
-    background-color: rgb(0, 0, 0);
-    height: 46px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    z-index: 1;
-}
+/* END HEADER */
+/* NAV BAR */
 
 #nav-bar, .sub-nav {
     list-style-type: none; /* xoa dau cham ul */
@@ -199,27 +250,11 @@ html {
     display: inline-block;
 }
 
-#home {
-
-}
-
-#band {
-
-}
-
-#tour {
-
-}
-
-#contact {
-
-}
-
-#more {
-
-}
+/* END NAVBAR */
+/* SLIDER */
 
 #slider {
+    width: 100%;
     position: relative;
     margin-top: 46px;
     /* 50% chiều ngang của chính nó */
@@ -233,9 +268,7 @@ html {
     /* căn giửa bằng position */
     /* left: 50%;
     transform: translateX(-50%); */
-
     width: 100%;
-
     text-align: center;
     bottom: 47px;
 }
@@ -251,70 +284,28 @@ html {
     font-weight: bold;
 }
 
+/* END SLIDER */
+/* CONTENT */
 #content {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    place-items: center;
 }
 
 #content .content-section {
-    padding: 64px 16px;
+    padding: 64px 0px;
     height: auto;
+    max-width: 100%;
     width: 800px;
-    /* CENTER */
-    margin-left: auto;
-    margin-right: auto;
+    background-color: transparent; /* Đảm bảo rằng không có màu nền cho nội dung */
 }
 
-#content .section-heading {
-    font-size: 30px;
-    text-align: center;
-    font-weight: 100;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    margin: 10px 0;
-    font-weight: bold;
-}
-
-#content .section-sub-heading {
-    font-size: 15px;
-    text-align: center;
-    margin: 15px 0;
-    font-style: italic;
-    /* color: #ccc; */
-    opacity: 0.6;
-    
-}
-
-#content .about-content {
-    margin: 15px 0;
-    text-align: justify;
-    line-height: 1.5;
-}
-
-#content .member-lists {
-    margin-top: 48px;
-    padding: 32px 0;
-}
-
-#content .member-item {
-    float: left;
-    width: calc(100% / 4);
-    text-align: center;
-}
-
-#content .member-name {
-    font-size: 15px;
-    margin: 15px 0;
-}
-
-#content .member-img {
-    width: 60%;
-    border-radius: 4px;
-}
-
-/* Tour section */
 .tour-section {
     position: relative;
-    /* Đảm bảo phần tử có position để sử dụng pseudo-element */
+    width: 100vw;
+    display: grid;
+    place-items: center; /* Căn giữa theo cả chiều ngang và chiều dọc */
 }
 
 .tour-section::before {
@@ -341,6 +332,47 @@ html {
     background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ màu đen với độ trong suốt */
     z-index: -1; /* Đưa lớp phủ ra sau nội dung nhưng trên lớp làm mờ */
 }
+
+#content .section-heading {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 100;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+#content .section-sub-heading {
+    text-align: center;
+    margin: 15px 0;
+    font-style: italic;
+    /* color: #ccc; */
+    opacity: 0.6;
+    
+}
+
+#content .about-content {
+    margin: 15px 0;
+    text-align: justify;
+    line-height: 1.5;
+}
+
+#content .member-lists {
+    margin-top: 48px;
+    padding: 32px 0;
+}
+
+#content .member-name {
+    margin: 15px 0;
+}
+
+#content .member-img {
+    width: 60%;
+    border-radius: 4px;
+}
+
+/* Tour section */
 
 .tour-section .ticket-lists {
     background-color: #fff;
@@ -380,15 +412,8 @@ html {
 
 /* Places Lists */
 .places-list {
-    padding: 32px 8px;
-    margin: -16px;
-}
-
-.places-item {
-    float: left;
-    width: calc(100%/3);
-    padding: 0 8px;
-    margin-bottom: 16px;
+    margin-top: 32px;
+    margin-bottom: 48px;
 }
 
 .places-img {
@@ -528,21 +553,11 @@ html {
     padding-bottom: 10px;
 }
 
-.instagram-lists {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
+/* INSTAGRAM LIST */
 
 .instagram-member {
-    float: left;
-    width: calc(100% / 4);
-    text-align: center;
-    margin: 15px 0;
     display: grid;
     place-items: center; /* Căn giữa theo cả chiều ngang và chiều dọc */
-    height: auto;
 }
 
 .instagram-name {
@@ -551,15 +566,8 @@ html {
     text-decoration: none;
 }
 
-.blue-tick {
-    width: 15px;
-    height: 15px;
-}
-
 .contact-content {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     padding: 20px;
 }
 
@@ -606,7 +614,6 @@ html {
     background-size: cover; /* Ensures the background image covers the entire container */
     background-position: center; /* Centers the background image */
     padding: 50px 20px; /* Adjust padding as needed for spacing */
-    text-align: center; /* Centers the text horizontally */
     position: relative;
     color: white; /* Text color */
 }
@@ -666,68 +673,18 @@ html {
 
 .social-links .youtube-button {
     background-image: url(https://cdn2.smentertainment.com/images/icon-link-youtube.svg);
-    background-size: 22px;
-    width: 28px;
-    height: 28px;
-    font-size: 12.6px;
-    color: #000;
-    display: block;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    background-position-x: 50%;
-    background-position-y: 50%;
 }
 .social-links .instagram-button {
     background-image: url(https://cdn2.smentertainment.com/images/icon-link-instagram.svg);
-    background-size: 22px;
-    width: 28px;
-    height: 28px;
-    font-size: 12.6px;
-    color: #000;
-    display: block;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    background-position-x: 50%;
-    background-position-y: 50%;
 }
 .social-links .x-button {
     background-image: url(https://cdn2.smentertainment.com/images/icon-link-x.svg);
-    background-size: 22px;
-    width: 28px;
-    height: 28px;
-    font-size: 12.6px;
-    color: #000;
-    display: block;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    background-position-x: 50%;
-    background-position-y: 50%;
 }
 .social-links .facebook-button {
     background-image: url(https://cdn2.smentertainment.com/images/icon-link-facebook.svg);
-    background-size: 22px;
-    width: 28px;
-    height: 28px;
-    font-size: 12.6px;
-    color: #000;
-    display: block;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    background-position-x: 50%;
-    background-position-y: 50%;
 }
 .social-links .weibo-button {
     background-image: url(https://cdn2.smentertainment.com/images/icon-link-weibo.svg);
-    background-size: 22px;
-    width: 28px;
-    height: 28px;
-    font-size: 12.6px;
-    color: #000;
-    display: block;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    background-position-x: 50%;
-    background-position-y: 50%;
 }
 
 #footer > p {
@@ -750,8 +707,4 @@ html {
         opacity: 1;
         transform: translateY(0);
     }
-}
-
-#footer {
-
 }
